@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Medical Insurance Cost Predictor</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Medical Insurance Cost Predictor</h1>
+    <form method="POST" action="/predict-form" class="form">
+      <div class="grid">
+        <label>Age
+          <input type="number" name="age" required min="0" max="120" step="1">
+        </label>
+        <label>Sex
+          <select name="sex" required>
+            <option value="male">male</option>
+            <option value="female">female</option>
+          </select>
+        </label>
+        <label>BMI
+          <input type="number" name="bmi" required step="0.1" min="10" max="60">
+        </label>
+        <label>Children
+          <input type="number" name="children" required min="0" max="10" step="1">
+        </label>
+        <label>Smoker
+          <select name="smoker" required>
+            <option value="no">no</option>
+            <option value="yes">yes</option>
+          </select>
+        </label>
+        <label>Region
+          <select name="region" required>
+            <option value="northeast">northeast</option>
+            <option value="northwest">northwest</option>
+            <option value="southeast">southeast</option>
+            <option value="southwest">southwest</option>
+          </select>
+        </label>
+      </div>
+      <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction is not none %}
+      <div class="result">
+        <h2>Predicted Charges: $ {{ prediction }}</h2>
+      </div>
+    {% endif %}
+
+    {% if error %}
+      <div class="error">
+        <p>Error: {{ error }}</p>
+      </div>
+    {% endif %}
+
+    <div class="note">
+      <p>This is a demo educational app. Predictions are based on a machine learning model trained on the classic "insurance" dataset.</p>
+    </div>
+  </div>
+</body>
+</html>

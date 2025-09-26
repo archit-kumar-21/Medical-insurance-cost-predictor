@@ -1,0 +1,92 @@
+Predictions aren't exact numbers they just depend on our training dataset
+
+
+for the given test cases results should be match to this 
+
+Smokers → highest cost
+
+Higher BMI → higher cost
+
+Older age → higher cost
+
+
+ 🔹 Sample Inputs & Expected Trends
+✅ Case 1 – Young, Healthy, Non-Smoker
+
+Age: 22
+
+Sex: female
+
+BMI: 21.5
+
+Children: 0
+
+Smoker: no
+
+Region: northeast
+
+👉 Expected: Low charges (likely < $4,000)
+
+✅ Case 2 – Middle-Aged, Overweight, Non-Smoker
+
+Age: 40
+
+Sex: male
+
+BMI: 30.2 (overweight)
+
+Children: 2
+
+Smoker: no
+
+Region: northwest
+
+👉 Expected: Moderate charges (~ $7,000 – $12,000)
+
+✅ Case 3 – Middle-Aged Smoker
+
+Age: 45
+
+Sex: female
+
+BMI: 28.0
+
+Children: 1
+
+Smoker: yes
+
+Region: southeast
+
+👉 Expected: Very high charges (> $20,000)
+
+✅ Case 4 – Senior, Smoker, High BMI
+
+Age: 60
+
+Sex: male
+
+BMI: 35.5 (obese)
+
+Children: 3
+
+Smoker: yes
+
+Region: southwest
+
+👉 Expected: Extremely high charges (> $30,000 – $40,000)
+
+✅ Case 5 – Senior, Healthy, Non-Smoker
+
+Age: 65
+
+Sex: female
+
+BMI: 23.0
+
+Children: 0
+
+Smoker: no
+
+Region: northwest
+
+👉 Expected: Moderate-high charges (~ $12,000 – $18,000)
