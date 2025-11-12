@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -60,5 +60,83 @@
       <p>This is a demo educational app. Predictions are based on a machine learning model trained on the classic "insurance" dataset.</p>
     </div>
   </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medical Insurance Cost Predictor 💙</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>💙 Medical Insurance Cost Predictor 💙</h1>
+    <p>Predict your healthcare expenses with a smile 😄 — powered by Machine Learning!</p>
+
+    <form action="/predict" method="POST">
+      <div class="form-group">
+        <label>Age</label>
+        <input type="number" name="age" required>
+      </div>
+      <div class="form-group">
+        <label>Gender</label>
+        <select name="sex" required>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>BMI</label>
+        <input type="number" name="bmi" step="0.1" required>
+      </div>
+      <div class="form-group">
+        <label>Children</label>
+        <input type="number" name="children" required>
+      </div>
+      <div class="form-group">
+        <label>Smoker</label>
+        <select name="smoker" required>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Region</label>
+        <select name="region" required>
+          <option value="northeast">Northeast</option>
+          <option value="northwest">Northwest</option>
+          <option value="southeast">Southeast</option>
+          <option value="southwest">Southwest</option>
+        </select>
+      </div>
+      <button type="submit">💰 Predict Insurance Cost</button>
+    </form>
+
+    {% if prediction %}
+      <div class="result">
+        <h2>🎉 Estimated Cost: ${{ prediction }}</h2>
+        <p>{{ message }}</p>
+        <div id="lottie" class="lottie-container"></div>
+      </div>
+
+      <script>
+        var animation = lottie.loadAnimation({
+          container: document.getElementById('lottie'),
+          renderer: 'svg',
+          loop: true,
+          autoplay: true,
+          path: "{{ lottie_url }}"
+        });
+      </script>
+    {% endif %}
+  </div>
+
+  <footer>
+    <p>Built with ❤️ by <b>Archit Kumar</b> | Data Science Intern, YR IT Solutions</p>
+  </footer>
 </body>
 </html>
